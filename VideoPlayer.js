@@ -112,7 +112,7 @@ export default class VideoPlayer extends Component {
             seekPanResponder: PanResponder,
             controlTimeout: null,
             volumeWidth: 150,
-            iconOffset: 0,
+            iconOffset: 7,
             seekWidth: 0,
             ref: Video,
         };
@@ -646,7 +646,7 @@ export default class VideoPlayer extends Component {
      * @return {float} volume handle position in px based on volume
      */
     calculateVolumePositionFromVolume() {
-        return this.player.volumeWidth * this.state.volume;
+        return this.player.volumeWidth / this.state.volume;
     }
 
 
@@ -1302,9 +1302,6 @@ const styles = {
             marginTop: -24,
             marginLeft: -24,
             padding: 16,
-        },
-        icon: {
-            marginLeft:7
         }
     }),
     seekbar: StyleSheet.create({
@@ -1316,28 +1313,30 @@ const styles = {
         },
         track: {
             backgroundColor: '#333',
-            height: 1,
+            height: 6,
+            borderRadius: 4,
             position: 'relative',
             top: 14,
             width: '100%'
         },
         fill: {
             backgroundColor: '#FFF',
-            height: 1,
+            height: 6,
+            borderRadius: 4,
             width: '100%'
         },
         handle: {
             position: 'absolute',
             marginLeft: -7,
-            height: 28,
-            width: 28,
+            height: 36,
+            width: 36,
         },
         circle: {
             borderRadius: 12,
             position: 'relative',
-            top: 8, left: 8,
-            height: 12,
-            width: 12,
+            top: 6, left: 4,
+            height: 22,
+            width: 22,
         },
     })
 };
